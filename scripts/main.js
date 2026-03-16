@@ -207,10 +207,10 @@ addReveal('.contact-form-wrap', 'reveal-right');
    CONTACT FORM
    ============================================= */
 
-emailjs.init('YOUR_EMAILJS_PUBLIC_KEY');
+emailjs.init('CgQDkSZzyijk3-ZFN');
 
-const EMAILJS_SERVICE_ID  = 'YOUR_SERVICE_ID';
-const EMAILJS_TEMPLATE_ID = 'YOUR_TEMPLATE_ID';
+const EMAILJS_SERVICE_ID  = 'service_kceso5e';
+const EMAILJS_TEMPLATE_ID = '598myjd';
 
 const form        = document.getElementById('contactForm');
 const formWrap    = document.getElementById('formSuccess');

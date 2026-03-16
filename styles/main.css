@@ -1188,6 +1188,76 @@ img { max-width: 100%; display: block; }
   padding-left: 1rem;
 }
 
+/* ---- Project image gallery ---- */
+.pc-gallery {
+  grid-column: 1 / -1;
+  border-top: 1px solid color-mix(in srgb, var(--proj, var(--accent)) 18%, var(--border));
+  background: color-mix(in srgb, var(--proj, var(--accent)) 3%, var(--bg));
+  padding: 1.25rem 2rem 1.5rem;
+}
+
+.pc-gallery-label {
+  font-size: 0.7rem;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: color-mix(in srgb, var(--proj, var(--accent)) 70%, var(--text-muted));
+  margin-bottom: 0.85rem;
+}
+
+.pc-gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 0.75rem;
+}
+
+.pc-gallery-item {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  aspect-ratio: 16 / 10;
+  border: 1px solid color-mix(in srgb, var(--proj, var(--accent)) 18%, var(--border));
+  display: block;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.pc-gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.pc-gallery-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px color-mix(in srgb, var(--proj, var(--accent)) 25%, transparent);
+}
+
+.pc-gallery-item:hover img {
+  transform: scale(1.06);
+}
+
+.pc-gallery-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 0.4rem 0.65rem;
+  font-size: 0.68rem;
+  font-family: var(--font-mono);
+  font-weight: 600;
+  color: #fff;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.65));
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.pc-gallery-item:hover .pc-gallery-caption {
+  opacity: 1;
+}
+
 /* =============================================
    EXPERIENCE
    ============================================= */

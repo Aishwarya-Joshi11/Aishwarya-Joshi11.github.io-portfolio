@@ -179,7 +179,7 @@
               <div class="skill-card-icon-wrap">🧠</div>
               <div>
                 <h3 class="skill-card-title">Core Skills</h3>
-                <p class="skill-card-meta">10 skills</p>
+                <p class="skill-card-meta">12 skills</p>
               </div>
             </div>
             <div class="skill-tags">
@@ -187,7 +187,8 @@
               <span class="skill-tag">Deep Learning</span>
               <span class="skill-tag">NLP</span>
               <span class="skill-tag">LLM Systems</span>
-              <span class="skill-tag">Agent AI</span>
+              <span class="skill-tag">Agentic AI</span>
+              <span class="skill-tag">Generative AI</span>
               <span class="skill-tag">Vector Search</span>
               <span class="skill-tag">Distributed Systems</span>
               <span class="skill-tag">Scalable Systems</span>
@@ -299,6 +300,8 @@
               <h3 class="pc-title">Grant Opportunity Matchmaking Agent</h3>
               <div class="pc-stat">84% match similarity · Top-10 faculty per grant</div>
               <div class="pc-tags">
+                <span class="pc-tag">Agentic AI</span>
+                <span class="pc-tag">Generative AI</span>
                 <span class="pc-tag">LangChain</span>
                 <span class="pc-tag">LangGraph</span>
                 <span class="pc-tag">pgvector</span>
@@ -315,15 +318,18 @@
             </div>
             <div class="pc-right">
               <p class="pc-hook">
-                Researchers often spend significant time manually searching through hundreds of grant
-                announcements to identify opportunities aligned with their work. This project explores
-                how large language models and vector search can automate the discovery of relevant
-                research funding opportunities. The system analyzes faculty research profiles and
-                intelligently matches them with grants using a multi-stage AI pipeline.
+                Identifying relevant research funding opportunities across hundreds of grant
+                announcements is a time-consuming challenge for faculty. This project addresses that
+                by building an agentic AI workflow orchestrated with LangGraph, where LLM reasoning
+                steps handle the full pipeline — from ingesting faculty profiles and extracting CV
+                publications, to retrieving matching grants and generating detailed match
+                justifications. LangChain powers the retrieval and reasoning layers, making the
+                entire process automated and explainable.
               </p>
               <p class="pc-desc">
-                Semantic grant–faculty matching using LLMs and embeddings, generating similarity
-                scores up to 84% with top-10 faculty recommendations per grant.
+                Multi-stage retrieval pipeline combining pgvector ANN search with LLM reranking,
+                delivering similarity scores up to 84% with top-10 faculty recommendations per grant
+                — with end-to-end latency reduced by ~70% through parallel LLM processing.
               </p>
             </div>
           </article>
@@ -366,6 +372,27 @@
                 and hyperparameter fine-tuning, achieving benchmark-level mAP on the COCO dataset.
               </p>
             </div>
+            <div class="pc-gallery">
+              <p class="pc-gallery-label">Project Visuals</p>
+              <div class="pc-gallery-grid">
+                <a href="assets/images/Object_detection_instance_segmentation_Mask_RCNN/modelarvchitecture.png" target="_blank" rel="noopener noreferrer" class="pc-gallery-item">
+                  <img src="assets/images/Object_detection_instance_segmentation_Mask_RCNN/modelarvchitecture.png" alt="Mask R-CNN model architecture" loading="lazy" />
+                  <span class="pc-gallery-caption">Model Architecture</span>
+                </a>
+                <a href="assets/images/Object_detection_instance_segmentation_Mask_RCNN/merge1.jpg" target="_blank" rel="noopener noreferrer" class="pc-gallery-item">
+                  <img src="assets/images/Object_detection_instance_segmentation_Mask_RCNN/merge1.jpg" alt="Object detection results" loading="lazy" />
+                  <span class="pc-gallery-caption">Detection Results</span>
+                </a>
+                <a href="assets/images/Object_detection_instance_segmentation_Mask_RCNN/merge2.jpg" target="_blank" rel="noopener noreferrer" class="pc-gallery-item">
+                  <img src="assets/images/Object_detection_instance_segmentation_Mask_RCNN/merge2.jpg" alt="Instance segmentation output" loading="lazy" />
+                  <span class="pc-gallery-caption">Segmentation Output</span>
+                </a>
+                <a href="assets/images/Object_detection_instance_segmentation_Mask_RCNN/loss_accuracy.jpeg" target="_blank" rel="noopener noreferrer" class="pc-gallery-item">
+                  <img src="assets/images/Object_detection_instance_segmentation_Mask_RCNN/loss_accuracy.jpeg" alt="Training loss and accuracy curves" loading="lazy" />
+                  <span class="pc-gallery-caption">Training Curves</span>
+                </a>
+              </div>
+            </div>
           </article>
 
           <!-- Project 3: Air Quality -->
@@ -404,6 +431,23 @@
                 End-to-end Random Forest regression pipeline (R²=0.87) with real-time WAQI feeds,
                 Flask CI/CD deployment, and a color-coded dashboard improving user efficiency by 60%.
               </p>
+            </div>
+            <div class="pc-gallery">
+              <p class="pc-gallery-label">Project Visuals</p>
+              <div class="pc-gallery-grid">
+                <a href="assets/images/AQI%20Predict/aqi_ui_dashboard.png" target="_blank" rel="noopener noreferrer" class="pc-gallery-item">
+                  <img src="assets/images/AQI%20Predict/aqi_ui_dashboard.png" alt="AQI dashboard UI" loading="lazy" />
+                  <span class="pc-gallery-caption">Dashboard</span>
+                </a>
+                <a href="assets/images/AQI%20Predict/aqi_ui_prediction1.png" target="_blank" rel="noopener noreferrer" class="pc-gallery-item">
+                  <img src="assets/images/AQI%20Predict/aqi_ui_prediction1.png" alt="AQI prediction result 1" loading="lazy" />
+                  <span class="pc-gallery-caption">Prediction View</span>
+                </a>
+                <a href="assets/images/AQI%20Predict/aqi_ui_prediction2.png" target="_blank" rel="noopener noreferrer" class="pc-gallery-item">
+                  <img src="assets/images/AQI%20Predict/aqi_ui_prediction2.png" alt="AQI prediction result 2" loading="lazy" />
+                  <span class="pc-gallery-caption">Prediction Detail</span>
+                </a>
+              </div>
             </div>
           </article>
 
@@ -487,7 +531,7 @@
               </div>
               <ul class="tl-bullets">
                 <li>Developed Python-based backend services and cloud solutions on AWS, improving platform reliability while reducing infrastructure costs by <strong>~30%</strong></li>
-                <li>Re-engineered data pipelines between AWS S3 and Snowflake, accelerating data processing throughput by <strong>~60%</strong> and eliminating hours of manual operational work</li>
+                <li>Designed and optimized scalable data pipelines between AWS S3 and Snowflake using Stage and Storage Integration objects, automating data ingestion with Python and SQL — cutting processing time by <strong>~60%</strong> and eliminating around <strong>10 hours</strong> of manual work every week</li>
                 <li>Built a Python automation utility to resolve Snowflake login inconsistencies, removing ambiguous user objects and eliminating recurring authentication failures</li>
                 <li>Designed an automated AWS WorkSpaces monitoring and alerting system that detected idle environments and helped reduce unnecessary cloud spending by <strong>~$500/month</strong></li>
                 <li>Contributed to agile sprint planning and mentoring junior engineers, improving delivery coordination and accelerating feature rollout timelines</li>

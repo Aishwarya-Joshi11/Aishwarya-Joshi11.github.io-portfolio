@@ -178,8 +178,39 @@ addReveal('.contact-form-wrap', 'reveal-right');
 
 
 /* =============================================
+   EMAILJS SETUP INSTRUCTIONS
+   ================================================
+   1. Go to https://www.emailjs.com and create a free account.
+
+   2. Add an Email Service:
+      Dashboard → Email Services → Add New Service
+      Connect your Gmail (or other provider).
+      Copy the Service ID (e.g. "service_abc123") → replace YOUR_SERVICE_ID below.
+
+   3. Create an Email Template:
+      Dashboard → Email Templates → Create New Template
+      Use these template variables so the fields map correctly:
+        From name:    {{from_name}}
+        From email:   {{from_email}}
+        Message:      {{message}}
+        To email:     your personal email address
+      Save and copy the Template ID (e.g. "template_xyz789") → replace YOUR_TEMPLATE_ID below.
+
+   4. Get your Public Key:
+      Dashboard → Account → General → Public Key
+      Copy it → replace YOUR_EMAILJS_PUBLIC_KEY below.
+
+   5. Free tier allows 200 emails/month — enough for a portfolio.
+   ============================================= */
+
+/* =============================================
    CONTACT FORM
    ============================================= */
+
+emailjs.init('YOUR_EMAILJS_PUBLIC_KEY');
+
+const EMAILJS_SERVICE_ID  = 'YOUR_SERVICE_ID';
+const EMAILJS_TEMPLATE_ID = 'YOUR_TEMPLATE_ID';
 
 const form        = document.getElementById('contactForm');
 const formWrap    = document.getElementById('formSuccess');
@@ -242,13 +273,56 @@ if (messageEl && charCountEl) {
   });
 }
 
+/* Toast notification helper */
+function showToast(msg, isError = false) {
+  const existing = document.getElementById('formToast');
+  if (existing) existing.remove();
+
+  const toast = document.createElement('div');
+  toast.id = 'formToast';
+  toast.setAttribute('role', 'status');
+  toast.setAttribute('aria-live', 'polite');
+  toast.textContent = msg;
+  toast.style.cssText = `
+    position: fixed;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%) translateY(20px);
+    background: ${isError ? 'var(--color-error, #ef4444)' : 'var(--color-accent, #6c63ff)'};
+    color: #fff;
+    padding: 0.85rem 1.5rem;
+    border-radius: 0.5rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+    z-index: 9999;
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    max-width: 90vw;
+    text-align: center;
+  `;
+  document.body.appendChild(toast);
+
+  requestAnimationFrame(() => {
+    toast.style.opacity = '1';
+    toast.style.transform = 'translateX(-50%) translateY(0)';
+  });
+
+  setTimeout(() => {
+    toast.style.opacity = '0';
+    toast.style.transform = 'translateX(-50%) translateY(10px)';
+    setTimeout(() => toast.remove(), 300);
+  }, 5000);
+}
+
 /* Submit handler */
 form.addEventListener('submit', (e) => {
   e.preventDefault();
+
+  // 1. Run validation before anything else
   const fields   = [...form.querySelectorAll('input, textarea')];
   const allValid = fields.every(validateField);
   if (!allValid) {
-    // Focus the first invalid field for accessibility
     const first = fields.find(f => f.classList.contains('error'));
     if (first) first.focus();
     return;
@@ -259,27 +333,38 @@ form.addEventListener('submit', (e) => {
   const btnSending = form.querySelector('.btn-sending');
   const btnIcon    = form.querySelector('.btn-icon');
 
-  /* Sending state */
+  // 2. Show loading state
   btnLabel.style.display   = 'none';
   btnIcon.style.display    = 'none';
   btnSending.style.display = 'flex';
   submitBtn.disabled       = true;
 
-  /* Simulate submission — swap in with a real fetch() when backend is ready */
-  setTimeout(() => {
-    form.reset();
-    if (charCountEl) charCountEl.textContent = '0 / 500';
+  // 3. Send via EmailJS
+  emailjs.sendForm(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, form)
+    .then(() => {
+      form.reset();
+      if (charCountEl) charCountEl.textContent = '0 / 500';
 
-    /* Restore button state (hidden behind success panel, but reset cleanly) */
-    btnLabel.style.display   = 'inline';
-    btnIcon.style.display    = 'inline';
-    btnSending.style.display = 'none';
-    submitBtn.disabled       = false;
+      // Restore button
+      btnLabel.style.display   = 'inline';
+      btnIcon.style.display    = 'inline';
+      btnSending.style.display = 'none';
+      submitBtn.disabled       = false;
 
-    /* Swap form → success panel */
-    form.style.display       = 'none';
-    formWrap.style.display   = 'flex';
-  }, 1500);
+      // Show success panel and toast
+      form.style.display     = 'none';
+      formWrap.style.display = 'flex';
+      showToast("Message sent successfully! I'll get back to you soon.");
+    })
+    .catch(() => {
+      // Restore button on error
+      btnLabel.style.display   = 'inline';
+      btnIcon.style.display    = 'inline';
+      btnSending.style.display = 'none';
+      submitBtn.disabled       = false;
+
+      showToast('Oops! Something went wrong. Please try emailing directly.', true);
+    });
 });
 
 /* "Send another" resets back to the form */

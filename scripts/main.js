@@ -6,7 +6,7 @@ const html = document.documentElement;
 const themeToggle = document.getElementById('themeToggle');
 
 function getStoredTheme() {
-  return localStorage.getItem('theme') || 'light';
+  return localStorage.getItem('theme') || 'dark';
 }
 
 function setTheme(theme) {

@@ -3,7 +3,7 @@ const resumeData = {
     name: "Aishwarya Dattatray Joshi",
     phone: "+1-(458)272-8696",
     email: "aishwarya.joshi111298@gmail.com",
-    linkedin: "https://www.linkedin.com/in/aishwarya-j-822999188/",
+    linkedin: "https://www.linkedin.com/in/aishwarya-joshi-822999188/",
     github: "https://github.com/Aishwarya-Joshi11",
   },
 

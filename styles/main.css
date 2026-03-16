@@ -1106,10 +1106,19 @@ img { max-width: 100%; display: block; }
   color: var(--text);
 }
 
+.project-hook {
+  font-size: 0.875rem;
+  line-height: 1.75;
+  color: var(--text);
+  border-left: 2px solid color-mix(in srgb, var(--accent) 40%, transparent);
+  padding-left: 0.9rem;
+  margin-bottom: 0.1rem;
+}
+
 .project-desc {
   color: var(--text-muted);
-  font-size: 0.88rem;
-  line-height: 1.85;
+  font-size: 0.85rem;
+  line-height: 1.8;
   flex: 1;
 }
 

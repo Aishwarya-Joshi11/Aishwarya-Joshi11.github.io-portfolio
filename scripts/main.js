@@ -88,6 +88,7 @@ window.addEventListener('scroll', updateActiveNav, { passive: true });
 
 const roles = [
   'ML Engineer',
+  'Generative AI Engineer',
   'Software Developer',
   'AWS Cloud Enthusiast',
   'CS Grad Student at Oregon State',

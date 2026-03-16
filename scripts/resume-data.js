@@ -89,7 +89,7 @@ const resumeData = {
       tags: ["LLMs", "Vector Search", "Agentic AI"],
       startDate: "Sep 2025",
       endDate: "Ongoing",
-      github: "https://github.com/Aishwarya-Joshi11/grant-matching-agent",
+      github: "https://github.com/woonki94/grant-matching-agent/tree/main",
       bullets: [
         "Built a two-stage retrieval pipeline (pgvector ANN search + LLM reranking) using Amazon Titan embeddings and Claude Haiku, reducing candidate search space by over 90% while improving match relevance.",
         "Designed a parallel LLM processing pipeline executing chunked LLM calls concurrently, reducing end-to-end response time by ~70% compared to sequential execution.",
@@ -102,7 +102,7 @@ const resumeData = {
       tags: ["Deep Learning", "Mask R-CNN"],
       startDate: "Jan 2025",
       endDate: "Mar 2025",
-      github: "https://github.com/Aishwarya-Joshi11/object-detection-instance-segmentation",
+      github: "https://github.com/Aishwarya-Joshi11/Object_detection_instance_segmentation_Mask_RCNN",
       bullets: [
         "Engineered a GPU-optimized training pipeline in PyTorch for Mask R-CNN (ResNet-101 + FPN), improving detection accuracy by 15% and reducing training loss by 35% through data augmentation and hyperparameter fine-tuning, achieving benchmark-level mAP on the COCO dataset.",
       ],
@@ -113,7 +113,7 @@ const resumeData = {
       tags: ["Machine Learning", "Random Forest"],
       startDate: "Aug 2020",
       endDate: "Jun 2021",
-      github: "https://github.com/Aishwarya-Joshi11/air-quality-index-prediction",
+      github: "https://github.com/AQI-BE-Project/AQI_using_flask",
       bullets: [
         "Developed an end-to-end Random Forest regression pipeline (R² = 0.87) combining real-time WAQI feeds and CPCB historical data, improving forecast precision by 18%, cutting prediction error by 30%, and deploying via a Flask CI/CD workflow with a color-coded dashboard that boosted user efficiency by 60%.",
       ],

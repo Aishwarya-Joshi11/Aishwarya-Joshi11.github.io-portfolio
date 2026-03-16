@@ -386,3 +386,89 @@ window.addEventListener('scroll', () => {
     ? '0 2px 20px rgba(0,0,0,0.15)'
     : 'none';
 }, { passive: true });
+
+/* =============================================
+   IMAGE LIGHTBOX
+   ============================================= */
+
+(function () {
+  // Build lightbox DOM once
+  const lb = document.createElement('div');
+  lb.id = 'lightbox';
+  lb.setAttribute('role', 'dialog');
+  lb.setAttribute('aria-modal', 'true');
+  lb.setAttribute('aria-label', 'Image viewer');
+  lb.innerHTML = `
+    <div class="lb-backdrop"></div>
+    <button class="lb-close" aria-label="Close">&times;</button>
+    <button class="lb-prev" aria-label="Previous image">&#8592;</button>
+    <button class="lb-next" aria-label="Next image">&#8594;</button>
+    <div class="lb-content">
+      <img class="lb-img" src="" alt="" />
+      <p class="lb-caption"></p>
+      <p class="lb-counter"></p>
+    </div>
+  `;
+  document.body.appendChild(lb);
+
+  let images = [];   // current gallery's items [{src, alt, caption}]
+  let current = 0;
+
+  const lbImg     = lb.querySelector('.lb-img');
+  const lbCaption = lb.querySelector('.lb-caption');
+  const lbCounter = lb.querySelector('.lb-counter');
+
+  function open(gallery, index) {
+    images = [...gallery.querySelectorAll('.pc-gallery-item')].map(a => ({
+      src:     a.href,
+      alt:     a.querySelector('img').alt,
+      caption: a.querySelector('.pc-gallery-caption').textContent,
+    }));
+    current = index;
+    render();
+    lb.classList.add('lb-open');
+    document.body.style.overflow = 'hidden';
+    lb.querySelector('.lb-close').focus();
+  }
+
+  function close() {
+    lb.classList.remove('lb-open');
+    document.body.style.overflow = '';
+  }
+
+  function render() {
+    const item = images[current];
+    lbImg.src          = item.src;
+    lbImg.alt          = item.alt;
+    lbCaption.textContent = item.caption;
+    lbCounter.textContent = `${current + 1} / ${images.length}`;
+    lb.querySelector('.lb-prev').style.visibility = current > 0                  ? 'visible' : 'hidden';
+    lb.querySelector('.lb-next').style.visibility = current < images.length - 1  ? 'visible' : 'hidden';
+  }
+
+  function prev() { if (current > 0)                 { current--; render(); } }
+  function next() { if (current < images.length - 1) { current++; render(); } }
+
+  // Click on gallery items
+  document.querySelectorAll('.pc-gallery').forEach(gallery => {
+    gallery.querySelectorAll('.pc-gallery-item').forEach((item, i) => {
+      item.addEventListener('click', e => {
+        e.preventDefault();
+        open(gallery, i);
+      });
+    });
+  });
+
+  lb.querySelector('.lb-close').addEventListener('click', close);
+  lb.querySelector('.lb-prev').addEventListener('click', prev);
+  lb.querySelector('.lb-next').addEventListener('click', next);
+  lb.querySelector('.lb-backdrop').addEventListener('click', close);
+
+  // Keyboard navigation
+  document.addEventListener('keydown', e => {
+    if (!lb.classList.contains('lb-open')) return;
+    if (e.key === 'Escape')     close();
+    if (e.key === 'ArrowLeft')  prev();
+    if (e.key === 'ArrowRight') next();
+  });
+})();

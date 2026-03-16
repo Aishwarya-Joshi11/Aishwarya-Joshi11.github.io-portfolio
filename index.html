@@ -290,102 +290,120 @@
         <div class="projects-grid">
 
           <!-- Project 1: Grant Matchmaking -->
-          <article class="project-card">
-            <div class="project-card-header">
-              <span class="project-domain-icon">🔬</span>
-              <span class="project-number">#01</span>
-            </div>
-            <h3 class="project-title">Grant Opportunity Matchmaking Agent</h3>
-            <p class="project-hook">
-              Researchers often spend significant time manually searching through hundreds of grant
-              announcements to identify opportunities aligned with their work. This project explores
-              how large language models and vector search can automate the discovery of relevant
-              research funding opportunities. The system analyzes faculty research profiles and
-              intelligently matches them with grants using a multi-stage AI pipeline.
-            </p>
-            <p class="project-desc">
-              Semantic grant–faculty matching using LLMs and embeddings, generating similarity
-              scores up to 84% with top-10 faculty recommendations per grant.
-            </p>
-            <div class="project-footer">
-              <div class="project-tech">
-                <span class="tag tag-sm">LLMs</span>
-                <span class="tag tag-sm">NLP</span>
-                <span class="tag tag-sm">Embeddings</span>
-                <span class="tag tag-sm">OpenRouter</span>
-                <span class="tag tag-sm">Qwen</span>
-                <span class="tag tag-sm">Python</span>
+          <article class="project-card" style="--proj: #7c3aed">
+            <div class="pc-left" data-num="01">
+              <div class="pc-top-row">
+                <span class="pc-icon">🔬</span>
+                <span class="pc-number">#01</span>
               </div>
-              <a href="https://github.com/woonki94/grant-matching-agent/tree/main" class="project-gh-btn" aria-label="View on GitHub" target="_blank" rel="noopener noreferrer">
+              <h3 class="pc-title">Grant Opportunity Matchmaking Agent</h3>
+              <div class="pc-stat">84% match similarity · Top-10 faculty per grant</div>
+              <div class="pc-tags">
+                <span class="pc-tag">LangChain</span>
+                <span class="pc-tag">LangGraph</span>
+                <span class="pc-tag">pgvector</span>
+                <span class="pc-tag">PostgreSQL</span>
+                <span class="pc-tag">AWS Bedrock</span>
+                <span class="pc-tag">Claude Haiku</span>
+                <span class="pc-tag">Python</span>
+                <span class="pc-tag">Vector Search</span>
+              </div>
+              <a href="https://github.com/woonki94/grant-matching-agent/tree/main" class="pc-btn" target="_blank" rel="noopener noreferrer">
                 <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
                 View on GitHub
               </a>
+            </div>
+            <div class="pc-right">
+              <p class="pc-hook">
+                Researchers often spend significant time manually searching through hundreds of grant
+                announcements to identify opportunities aligned with their work. This project explores
+                how large language models and vector search can automate the discovery of relevant
+                research funding opportunities. The system analyzes faculty research profiles and
+                intelligently matches them with grants using a multi-stage AI pipeline.
+              </p>
+              <p class="pc-desc">
+                Semantic grant–faculty matching using LLMs and embeddings, generating similarity
+                scores up to 84% with top-10 faculty recommendations per grant.
+              </p>
             </div>
           </article>
 
           <!-- Project 2: Object Detection -->
-          <article class="project-card">
-            <div class="project-card-header">
-              <span class="project-domain-icon">👁️</span>
-              <span class="project-number">#02</span>
-            </div>
-            <h3 class="project-title">Object Detection &amp; Instance Segmentation</h3>
-            <p class="project-hook">
-              Understanding objects within complex images requires models capable of detecting not
-              only object locations but also precise segmentation boundaries. This project focuses
-              on implementing and optimizing a deep learning pipeline for instance segmentation
-              using Mask R-CNN on the COCO dataset. The work explores model training,
-              hyperparameter tuning, and GPU-accelerated deep learning workflows.
-            </p>
-            <p class="project-desc">
-              GPU-optimized Mask R-CNN pipeline in PyTorch (ResNet-101 + FPN), improving
-              detection accuracy by 15% and achieving benchmark-level mAP on COCO dataset.
-            </p>
-            <div class="project-footer">
-              <div class="project-tech">
-                <span class="tag tag-sm">Deep Learning</span>
-                <span class="tag tag-sm">PyTorch</span>
-                <span class="tag tag-sm">Mask R-CNN</span>
-                <span class="tag tag-sm">Computer Vision</span>
-                <span class="tag tag-sm">COCO</span>
+          <article class="project-card" style="--proj: #f97316">
+            <div class="pc-left" data-num="02">
+              <div class="pc-top-row">
+                <span class="pc-icon">👁️</span>
+                <span class="pc-number">#02</span>
               </div>
-              <a href="https://github.com/Aishwarya-Joshi11/Object_detection_instance_segmentation_Mask_RCNN" class="project-gh-btn" aria-label="View on GitHub" target="_blank" rel="noopener noreferrer">
+              <h3 class="pc-title">Object Detection &amp; Instance Segmentation</h3>
+              <div class="pc-stat">+15% detection accuracy · Benchmark mAP on COCO</div>
+              <div class="pc-tags">
+                <span class="pc-tag">PyTorch</span>
+                <span class="pc-tag">Mask R-CNN</span>
+                <span class="pc-tag">ResNet-101</span>
+                <span class="pc-tag">FPN</span>
+                <span class="pc-tag">COCO Dataset</span>
+                <span class="pc-tag">Deep Learning</span>
+                <span class="pc-tag">Python</span>
+                <span class="pc-tag">GPU Training</span>
+              </div>
+              <a href="https://github.com/Aishwarya-Joshi11/Object_detection_instance_segmentation_Mask_RCNN" class="pc-btn" target="_blank" rel="noopener noreferrer">
                 <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
                 View on GitHub
               </a>
+            </div>
+            <div class="pc-right">
+              <p class="pc-hook">
+                Understanding objects within complex images requires models capable of detecting not
+                only object locations but also precise segmentation boundaries. This project focuses
+                on implementing and optimizing a deep learning pipeline for instance segmentation
+                using Mask R-CNN on the COCO dataset. The work explores model training,
+                hyperparameter tuning, and GPU-accelerated deep learning workflows.
+              </p>
+              <p class="pc-desc">
+                GPU-optimized Mask R-CNN pipeline in PyTorch (ResNet-101 + FPN), improving
+                detection accuracy by 15% and reducing training loss by 35% through data augmentation
+                and hyperparameter fine-tuning, achieving benchmark-level mAP on the COCO dataset.
+              </p>
             </div>
           </article>
 
           <!-- Project 3: Air Quality -->
-          <article class="project-card">
-            <div class="project-card-header">
-              <span class="project-domain-icon">🌿</span>
-              <span class="project-number">#03</span>
-            </div>
-            <h3 class="project-title">Air Quality Index Prediction</h3>
-            <p class="project-hook">
-              Air pollution levels vary due to complex environmental factors, making accurate
-              forecasting an important challenge for public health awareness. This project develops
-              a machine learning pipeline to predict Air Quality Index (AQI) using historical
-              pollution data combined with real-time environmental feeds. The goal was to build a
-              system that provides accessible and interpretable air quality predictions.
-            </p>
-            <p class="project-desc">
-              End-to-end Random Forest regression pipeline (R²=0.87) with real-time WAQI feeds,
-              Flask CI/CD deployment, and a color-coded dashboard improving user efficiency by 60%.
-            </p>
-            <div class="project-footer">
-              <div class="project-tech">
-                <span class="tag tag-sm">Machine Learning</span>
-                <span class="tag tag-sm">Random Forest</span>
-                <span class="tag tag-sm">Flask</span>
-                <span class="tag tag-sm">Python</span>
-                <span class="tag tag-sm">CI/CD</span>
+          <article class="project-card" style="--proj: #10b981">
+            <div class="pc-left" data-num="03">
+              <div class="pc-top-row">
+                <span class="pc-icon">🌿</span>
+                <span class="pc-number">#03</span>
               </div>
-              <a href="https://github.com/AQI-BE-Project/AQI_using_flask" class="project-gh-btn" aria-label="View on GitHub" target="_blank" rel="noopener noreferrer">
+              <h3 class="pc-title">Air Quality Index Prediction</h3>
+              <div class="pc-stat">R² = 0.87 · 30% lower prediction error</div>
+              <div class="pc-tags">
+                <span class="pc-tag">Python</span>
+                <span class="pc-tag">Random Forest</span>
+                <span class="pc-tag">scikit-learn</span>
+                <span class="pc-tag">Flask</span>
+                <span class="pc-tag">Pandas</span>
+                <span class="pc-tag">WAQI API</span>
+                <span class="pc-tag">CI/CD</span>
+                <span class="pc-tag">NumPy</span>
+              </div>
+              <a href="https://github.com/AQI-BE-Project/AQI_using_flask" class="pc-btn" target="_blank" rel="noopener noreferrer">
                 <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
                 View on GitHub
               </a>
+            </div>
+            <div class="pc-right">
+              <p class="pc-hook">
+                Air pollution levels vary due to complex environmental factors, making accurate
+                forecasting an important challenge for public health awareness. This project develops
+                a machine learning pipeline to predict Air Quality Index (AQI) using historical
+                pollution data combined with real-time environmental feeds. The goal was to build a
+                system that provides accessible and interpretable air quality predictions.
+              </p>
+              <p class="pc-desc">
+                End-to-end Random Forest regression pipeline (R²=0.87) with real-time WAQI feeds,
+                Flask CI/CD deployment, and a color-coded dashboard improving user efficiency by 60%.
+              </p>
             </div>
           </article>
 

@@ -1011,161 +1011,192 @@ img { max-width: 100%; display: block; }
    PROJECTS
    ============================================= */
 
-/* 3 equal columns desktop → 2 tablet → 1 mobile */
+/* Single-column stack of full-width cards */
 .projects-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
-  align-items: stretch;
-}
-
-/* ---- Card shell ---- */
-.project-card {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 2rem;
-  position: relative;
-  overflow: hidden;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 2rem;
+}
+
+/* ---- Card shell: two-panel horizontal layout ---- */
+.project-card {
+  display: grid;
+  grid-template-columns: 340px 1fr;
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  position: relative;
   transition: transform 0.32s cubic-bezier(0.22, 1, 0.36, 1),
               box-shadow 0.32s ease,
               border-color var(--transition);
 }
 
-/* Shimmer sweep on hover */
-.project-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -75%;
-  width: 50%;
-  height: 100%;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(255, 255, 255, 0.055),
-    transparent
-  );
-  transform: skewX(-18deg);
-  transition: left 0.55s ease;
-  pointer-events: none;
-}
-
-.project-card:hover::before {
-  left: 140%;
-}
-
 .project-card:hover {
-  border-color: var(--accent);
-  transform: translateY(-6px);
+  transform: translateY(-5px);
+  border-color: color-mix(in srgb, var(--proj, var(--accent)) 50%, var(--border));
   box-shadow:
-    0 2px 8px rgba(0, 0, 0, 0.08),
-    0 8px 28px rgba(0, 0, 0, 0.14),
-    0 24px 56px rgba(108, 99, 255, 0.14);
+    0 8px 24px rgba(0, 0, 0, 0.1),
+    0 24px 56px color-mix(in srgb, var(--proj, var(--accent)) 18%, transparent);
 }
 
-/* ---- Card top row: icon + number ---- */
-.project-card-header {
+/* ---- LEFT panel: colored accent side ---- */
+.pc-left {
+  background: linear-gradient(
+    160deg,
+    color-mix(in srgb, var(--proj, var(--accent)) 14%, var(--bg-card)) 0%,
+    color-mix(in srgb, var(--proj, var(--accent)) 6%, var(--bg-card)) 100%
+  );
+  border-right: 1px solid color-mix(in srgb, var(--proj, var(--accent)) 20%, var(--border));
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Large faint number watermark */
+.pc-left::before {
+  content: attr(data-num);
+  position: absolute;
+  bottom: -0.5rem;
+  right: -0.5rem;
+  font-size: 8rem;
+  font-weight: 900;
+  font-family: var(--font-mono);
+  color: color-mix(in srgb, var(--proj, var(--accent)) 10%, transparent);
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+}
+
+.pc-top-row {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-.project-domain-icon {
-  font-size: 2rem;
+.pc-icon {
+  font-size: 2.2rem;
   line-height: 1;
+  filter: drop-shadow(0 2px 6px color-mix(in srgb, var(--proj, var(--accent)) 40%, transparent));
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
-.project-number {
+.project-card:hover .pc-icon {
+  transform: scale(1.15) rotate(-5deg);
+}
+
+.pc-number {
   font-family: var(--font-mono);
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   font-weight: 700;
-  color: var(--text-faint);
-  letter-spacing: 0.06em;
-  background: var(--bg);
-  border: 1px solid var(--border);
+  letter-spacing: 0.08em;
+  color: color-mix(in srgb, var(--proj, var(--accent)) 80%, var(--text));
+  background: color-mix(in srgb, var(--proj, var(--accent)) 12%, transparent);
+  border: 1px solid color-mix(in srgb, var(--proj, var(--accent)) 30%, transparent);
   border-radius: var(--radius-sm);
-  padding: 0.2rem 0.55rem;
-  transition: color var(--transition), border-color var(--transition);
+  padding: 0.2rem 0.6rem;
 }
 
-.project-card:hover .project-number {
-  color: var(--accent);
-  border-color: var(--accent);
-}
-
-/* ---- Text ---- */
-.project-title {
-  font-size: 1.1rem;
+.pc-title {
+  font-size: 1.15rem;
   font-weight: 700;
   letter-spacing: -0.02em;
-  line-height: 1.35;
+  line-height: 1.3;
   color: var(--text);
 }
 
-.project-hook {
-  font-size: 0.875rem;
-  line-height: 1.75;
-  color: var(--text);
-  border-left: 2px solid color-mix(in srgb, var(--accent) 40%, transparent);
-  padding-left: 0.9rem;
-  margin-bottom: 0.1rem;
+.pc-stat {
+  font-size: 0.75rem;
+  font-family: var(--font-mono);
+  color: color-mix(in srgb, var(--proj, var(--accent)) 90%, var(--text));
+  background: color-mix(in srgb, var(--proj, var(--accent)) 10%, transparent);
+  border: 1px solid color-mix(in srgb, var(--proj, var(--accent)) 25%, transparent);
+  border-radius: 6px;
+  padding: 0.35rem 0.75rem;
+  display: inline-block;
 }
 
-.project-desc {
-  color: var(--text-muted);
-  font-size: 0.85rem;
-  line-height: 1.8;
-  flex: 1;
-}
-
-/* ---- Footer: tags + GitHub button ---- */
-.project-footer {
-  display: flex;
-  flex-direction: column;
-  gap: 0.9rem;
-  margin-top: auto;
-}
-
-.project-tech {
+.pc-tags {
   display: flex;
   flex-wrap: wrap;
   gap: 0.4rem;
+  margin-top: auto;
 }
 
-/* GitHub CTA button */
-.project-gh-btn {
+.pc-tag {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-family: var(--font-mono);
+  padding: 0.22rem 0.6rem;
+  border-radius: 20px;
+  background: color-mix(in srgb, var(--proj, var(--accent)) 10%, var(--bg));
+  border: 1px solid color-mix(in srgb, var(--proj, var(--accent)) 28%, transparent);
+  color: color-mix(in srgb, var(--proj, var(--accent)) 85%, var(--text));
+  transition: background var(--transition), transform 0.2s ease;
+}
+
+.pc-tag:hover {
+  background: color-mix(in srgb, var(--proj, var(--accent)) 20%, var(--bg));
+  transform: translateY(-1px);
+}
+
+/* GitHub button */
+.pc-btn {
   display: inline-flex;
   align-items: center;
   gap: 0.5em;
   align-self: flex-start;
-  padding: 0.45rem 1rem;
+  padding: 0.5rem 1.1rem;
   font-size: 0.82rem;
   font-weight: 600;
   font-family: var(--font-sans);
-  color: var(--text-muted);
-  background: transparent;
-  border: 1px solid var(--border);
+  color: color-mix(in srgb, var(--proj, var(--accent)) 90%, var(--text));
+  background: color-mix(in srgb, var(--proj, var(--accent)) 10%, transparent);
+  border: 1px solid color-mix(in srgb, var(--proj, var(--accent)) 40%, transparent);
   border-radius: var(--radius-sm);
   text-decoration: none;
-  transition: color var(--transition), border-color var(--transition),
-              background var(--transition), transform var(--transition);
+  transition: background var(--transition), border-color var(--transition),
+              transform var(--transition), box-shadow var(--transition);
 }
 
-.project-gh-btn svg {
-  width: 15px;
-  height: 15px;
+.pc-btn svg {
+  width: 14px;
+  height: 14px;
   flex-shrink: 0;
 }
 
-.project-gh-btn:hover {
-  color: var(--accent);
-  border-color: var(--accent);
-  background: rgba(108, 99, 255, 0.06);
-  transform: translateY(-1px);
+.pc-btn:hover {
+  background: color-mix(in srgb, var(--proj, var(--accent)) 20%, transparent);
+  border-color: color-mix(in srgb, var(--proj, var(--accent)) 65%, transparent);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px color-mix(in srgb, var(--proj, var(--accent)) 25%, transparent);
+}
+
+/* ---- RIGHT panel: clean content side ---- */
+.pc-right {
+  background: var(--bg-card);
+  padding: 2rem 2.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+  justify-content: center;
+}
+
+.pc-hook {
+  font-size: 0.92rem;
+  line-height: 1.8;
+  color: var(--text);
+  border-left: 3px solid color-mix(in srgb, var(--proj, var(--accent)) 55%, transparent);
+  padding-left: 1rem;
+}
+
+.pc-desc {
+  font-size: 0.85rem;
+  line-height: 1.8;
+  color: var(--text-muted);
+  padding-left: 1rem;
 }
 
 /* =============================================
@@ -1742,8 +1773,14 @@ img { max-width: 100%; display: block; }
     height: 275px;
   }
 
-  .projects-grid {
-    grid-template-columns: repeat(2, 1fr);
+  /* project cards: collapse to single column at 1024px */
+  .project-card {
+    grid-template-columns: 1fr;
+  }
+
+  .pc-left {
+    border-right: none;
+    border-bottom: 1px solid color-mix(in srgb, var(--proj, var(--accent)) 20%, var(--border));
   }
 
   .tl-card-header { flex-direction: column; gap: 0.6rem; }
@@ -1761,7 +1798,8 @@ img { max-width: 100%; display: block; }
   .hero-actions { flex-direction: column; }
   .hero-actions .btn { width: 100%; text-align: center; }
 
-  .projects-grid { grid-template-columns: 1fr; }
+  .pc-right { padding: 1.5rem; }
+  .pc-left  { padding: 1.5rem; }
 
   .skills-grid { grid-template-columns: 1fr; }
   .skill-card--hero,

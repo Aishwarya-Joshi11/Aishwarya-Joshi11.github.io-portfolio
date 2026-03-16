@@ -792,6 +792,31 @@ img { max-width: 100%; display: block; }
   box-shadow: 0 4px 14px color-mix(in srgb, var(--cat, var(--accent)) 28%, transparent);
 }
 
+/* Full-width card spanning both columns (for large Frameworks & Tools card) */
+.skill-card--wide {
+  grid-column: 1 / -1;
+}
+
+/* Java "Working Knowledge" muted pill */
+.skill-tag--muted {
+  background: transparent;
+  border-color: var(--border);
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.skill-tag--muted .skill-tag-level {
+  font-size: 0.68rem;
+  opacity: 0.75;
+  margin-left: 0.3em;
+}
+
+.skill-tag--muted:hover {
+  border-color: var(--text-muted);
+  color: var(--text);
+  transform: translateY(-2px) scale(1.04);
+}
+
 /* Python "Proficient" featured pill */
 .skill-tag--featured {
   background: color-mix(in srgb, var(--cat, var(--accent)) 8%, transparent);

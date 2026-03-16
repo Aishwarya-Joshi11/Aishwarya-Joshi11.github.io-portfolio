@@ -210,7 +210,7 @@ addReveal('.contact-form-wrap', 'reveal-right');
 emailjs.init('CgQDkSZzyijk3-ZFN');
 
 const EMAILJS_SERVICE_ID  = 'service_kceso5e';
-const EMAILJS_TEMPLATE_ID = '598myjd';
+const EMAILJS_TEMPLATE_ID = 'template_akr0wdf';
 
 const form        = document.getElementById('contactForm');
 const formWrap    = document.getElementById('formSuccess');

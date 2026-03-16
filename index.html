@@ -30,7 +30,7 @@
   <link rel="stylesheet" href="styles/main.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
 </head>
 <body>
 
@@ -80,7 +80,11 @@
 
     <!-- Hero Section -->
     <section id="hero" class="hero" aria-label="Introduction">
+      <div class="hero-orb hero-orb--1" aria-hidden="true"></div>
+      <div class="hero-orb hero-orb--2" aria-hidden="true"></div>
+      <div class="hero-orb hero-orb--3" aria-hidden="true"></div>
       <div class="container hero-content">
+        <div class="hero-badge hero-anim-1">✨ Open to Opportunities</div>
         <p class="hero-greeting hero-anim-1">Hi, I'm Aishwarya <span class="hero-wave">👋</span></p>
         <h1 class="hero-name hero-anim-2">Aishwarya Joshi<span class="accent">.</span></h1>
         <h2 class="hero-title hero-anim-3">
@@ -93,6 +97,24 @@
         <div class="hero-actions hero-anim-5">
           <a href="#projects" class="btn btn-primary">View My Work</a>
           <a href="assets/resume.pdf" class="btn btn-outline" download>Download Resume</a>
+        </div>
+        <div class="hero-stats hero-anim-6">
+          <div class="hero-stat">
+            <span class="stat-val">3+</span>
+            <span class="stat-lbl">Years Exp</span>
+          </div>
+          <div class="hero-stat">
+            <span class="stat-val">3.82</span>
+            <span class="stat-lbl">GPA @ OSU</span>
+          </div>
+          <div class="hero-stat">
+            <span class="stat-val">Intel</span>
+            <span class="stat-lbl">Interning At</span>
+          </div>
+          <div class="hero-stat">
+            <span class="stat-val">AI/ML</span>
+            <span class="stat-lbl">Focus Area</span>
+          </div>
         </div>
         <div class="hero-socials hero-anim-6">
           <a href="https://github.com/Aishwarya-Joshi11" aria-label="GitHub" class="social-link" target="_blank" rel="noopener noreferrer">
@@ -174,7 +196,7 @@
         <div class="skills-grid">
 
           <!-- Category 1: Core Skills — hero full-width -->
-          <div class="skill-card skill-card--hero" style="--cat: #6c63ff">
+          <div class="skill-card skill-card--hero">
             <div class="skill-card-header">
               <div class="skill-card-icon-wrap">🧠</div>
               <div>
@@ -198,7 +220,7 @@
           </div>
 
           <!-- Category 2: Languages -->
-          <div class="skill-card" style="--cat: #f59e0b">
+          <div class="skill-card skill-card--lang">
             <div class="skill-card-header">
               <div class="skill-card-icon-wrap">💻</div>
               <div>
@@ -219,7 +241,7 @@
           </div>
 
           <!-- Category 3: Frameworks & Tools — 2-col span -->
-          <div class="skill-card skill-card--span2" style="--cat: #3b82f6">
+          <div class="skill-card skill-card--span2">
             <div class="skill-card-header">
               <div class="skill-card-icon-wrap">🛠️</div>
               <div>
@@ -264,7 +286,7 @@
           </div>
 
           <!-- Category 4: Operating Systems — compact full-width -->
-          <div class="skill-card skill-card--os" style="--cat: #10b981">
+          <div class="skill-card skill-card--os">
             <div class="skill-card-header">
               <div class="skill-card-icon-wrap">🖥️</div>
               <div>
@@ -291,7 +313,7 @@
         <div class="projects-grid">
 
           <!-- Project 1: Grant Matchmaking -->
-          <article class="project-card" style="--proj: #7c3aed">
+          <article class="project-card">
             <div class="pc-left" data-num="01">
               <div class="pc-top-row">
                 <span class="pc-icon">🔬</span>
@@ -335,7 +357,7 @@
           </article>
 
           <!-- Project 2: Object Detection -->
-          <article class="project-card" style="--proj: #f97316">
+          <article class="project-card">
             <div class="pc-left" data-num="02">
               <div class="pc-top-row">
                 <span class="pc-icon">👁️</span>
@@ -388,7 +410,7 @@
           </article>
 
           <!-- Project 3: Air Quality -->
-          <article class="project-card" style="--proj: #10b981">
+          <article class="project-card">
             <div class="pc-left" data-num="03">
               <div class="pc-top-row">
                 <span class="pc-icon">🌿</span>
@@ -456,7 +478,7 @@
         <div class="timeline">
 
           <!-- Role 1: Intel -->
-          <div class="tl-item" style="--role: #0668b5">
+          <div class="tl-item">
             <div class="tl-left">
               <div class="tl-dot"></div>
             </div>
@@ -483,7 +505,7 @@
           </div>
 
           <!-- Role 2: OSU Digital Experience -->
-          <div class="tl-item" style="--role: #d73f09">
+          <div class="tl-item">
             <div class="tl-left">
               <div class="tl-dot"></div>
             </div>
@@ -507,7 +529,7 @@
           </div>
 
           <!-- Role 3: Persistent Systems -->
-          <div class="tl-item" style="--role: #10b981">
+          <div class="tl-item">
             <div class="tl-left">
               <div class="tl-dot"></div>
             </div>
